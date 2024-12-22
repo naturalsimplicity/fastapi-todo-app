@@ -1,1 +1,5 @@
 LOGIN_IS_ALREADY_USED = 'Login is already used'
+ITEM_DOES_NOT_EXIST = 'Requested item does not exist'
+MALFORMED_PAYLOAD = 'Authentication token is invalid'
+AUTHENTICATION_TOKEN_HAS_EXPIRED = 'Authentication token has expired'
+CANNOT_MODIFY_ITEMS = 'You are not allowed to modify items created by other users'

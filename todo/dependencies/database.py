@@ -3,19 +3,19 @@ from aiosqlite import Connection, connect
 from fastapi import Depends
 
 from todo.core.settings import settings
-from todo.repositories.base import BaseRepository
+from todo.services.base import BaseService
 
 
 async def _get_connection() -> AsyncGenerator[Connection, Any]:
     async with connect(settings.database_url) as conn:
         yield conn
 
-def get_repository(
-    repo_type: Type[BaseRepository],
-) -> Callable[[Connection], BaseRepository]:
-    def _get_repo(
+def get_service(
+    service_type: Type[BaseService],
+) -> Callable[[Connection], BaseService]:
+    def _get_service(
         conn: Annotated[Connection, Depends(_get_connection)],
-    ) -> BaseRepository:
-        return repo_type(conn)
+    ) -> BaseService:
+        return service_type(conn)
 
-    return _get_repo
+    return _get_service

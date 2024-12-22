@@ -1,7 +1,7 @@
 from aiosqlite import Connection
 
 
-class BaseRepository:
+class BaseService:
     def __init__(self, connection: Connection) -> None:
         self._connection = connection
 

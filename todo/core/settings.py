@@ -13,6 +13,10 @@ class AppSettings(BaseSettings):
     logging_level: int = logging.DEBUG
     database_url: str = "sqlite:///../database.db"
 
+    secret_key: str = "very-secret-key"
+    encryption_algorithm: str = 'HS256'
+    access_token_expire_seconds: int = 60 * 60 * 24  # one day
+
     @property
     def fastapi_kwargs(self) -> dict[str, Any]:
         return {
@@ -22,3 +26,6 @@ class AppSettings(BaseSettings):
         }
 
 settings = AppSettings()
+
+def get_app_settings() -> AppSettings:
+    return settings
