@@ -25,8 +25,6 @@ async def create_user(
             login=user.login,
             name=user.name
         )
-
-        return 
     except LoginIsUnavailableError:
         raise HTTPException(
             status_code=status.HTTP_406_NOT_ACCEPTABLE,

@@ -7,7 +7,7 @@ from todo.services.base import BaseService
 
 
 async def _get_connection() -> AsyncGenerator[Connection, Any]:
-    async with connect(settings.database_url) as conn:
+    async with connect(f"{settings.database_path}") as conn:
         yield conn
 
 def get_service(
