@@ -13,7 +13,9 @@ To read tasks you can use:
 3. `GET /api/v1/users/{login}/items` — returns all items of specific user
 
 If you want to create or edit a task:
-1. `POST /api/v1/users/register` — register with your name and login and get authentication token (you need to pass Authorization header with your request hereinafter)
+1. `POST /api/v1/users/register` — register with your name and login and get authentication token
+(you need to pass Authorization header with your request hereinafter.
+Swagger UI allows you to enter token using special "Authorize" button)
 2. `POST /api/v1/items` — create new item 
 3. `PUT /api/v1/items/{item_id}` — edit existing task (you can edit only yours)
 4. `DELETE /api/v1/` — delete existing task (you can edit only yours)
@@ -22,7 +24,7 @@ If you want to create or edit a task:
 
 Create an image from Dockerfile:
 
-    docker build -t todo-app .
+    docker build -t todo-service .
 
 Create volume for the app data:
 
@@ -30,4 +32,4 @@ Create volume for the app data:
 
 Start container with the app:
     
-    docker run --name todo-app-fastapi -d -p 8000:80 -v todo_data:/app/data todo-app
+    docker run --name todo-service -d -p 8000:80 -v todo_data:/app/data todo-service
